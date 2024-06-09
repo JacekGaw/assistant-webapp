@@ -7,6 +7,8 @@ import "./index.css";
 import ErrorPage from "./pages/404/ErrorPage";
 import Login from "./pages/Hero/Login";
 import Signup from "./pages/Hero/Signup";
+import ProtectedRoute from "./components/ProtectedRoute";
+import PanelRoot from "./pages/Panel/PanelRoot";
 
 const router = createBrowserRouter([
   {
@@ -15,15 +17,26 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/signin",
+        path: "signin",
         element: <Login />,
       },
       {
-        path: "/signup",
+        path: "signup",
         element: <Signup />,
       },
     ],
   },
+  {
+    path: "/panel",
+    element: <ProtectedRoute />, // This will protect /panel and its sub-routes
+    children: [
+      {
+        path: "",
+        element: <PanelRoot />
+      }
+    ],
+    errorElement: <ErrorPage />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
