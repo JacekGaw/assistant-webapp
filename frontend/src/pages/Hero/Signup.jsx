@@ -1,6 +1,7 @@
 import { useRef, useContext, useState } from "react";
 import Button from "../../components/Button";
 import { UserContext } from "../../store/user-context";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [errorMessage, setErrorMessage] = useState();
@@ -10,6 +11,8 @@ const Signup = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const repeatpasswordRef = useRef();
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +30,7 @@ const Signup = () => {
       setButtonDisabled(true);
       await signUp(name, email, password, repeatedPassword);
       setButtonDisabled(false);
+      navigate("/signin");
     } catch(err) {
       setErrorMessage(err.message);
       setButtonDisabled(false);

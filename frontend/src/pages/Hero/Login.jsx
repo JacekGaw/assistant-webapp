@@ -1,9 +1,11 @@
 import { useRef, useContext, useState } from "react";
 import Button from "../../components/Button";
 import { UserContext } from "../../store/user-context";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [errorMessage, setErrorMessage] = useState();
+    const navigate = useNavigate();
     const {logIn}= useContext(UserContext)
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -16,6 +18,7 @@ const Login = () => {
     try {
         setErrorMessage();
         await logIn(email, password);
+        navigate("/panel");
     }
     catch(err) {
         setErrorMessage(err.message);
