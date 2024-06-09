@@ -2,7 +2,7 @@ const Button = ({ className, type, onClick, disabled, children }) => {
   return (
     <>
       <button
-        className={`p-1 rounded-full from-gr-first via-gr-second to-gr-third bg-gradient-to-r ${className}`}
+        className={`p-1 rounded-full  ${disabled ? "bg-gray-700" : "from-gr-first via-gr-second to-gr-third bg-gradient-to-r"} ${className}`}
         type={type}
         onClick={onClick}
         disabled={disabled}

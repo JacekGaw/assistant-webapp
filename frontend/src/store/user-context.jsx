@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 
 export const UserContext = createContext({
@@ -13,10 +13,12 @@ const UserContextProvider = ({ children }) => {
 
   const logIn = (email, password) => {
     console.log(email, password);
+    // throw new Error("cannot log in");
   }
 
   const signUp = (name, email, password, repeatedPassword) => {
     console.log(name, email, password, repeatedPassword);
+    // throw new Error("cannot signup");
   }
 
   const ctxValue = {
