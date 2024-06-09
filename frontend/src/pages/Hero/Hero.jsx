@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, NavLink } from 'react-router-dom'; 
+import { Outlet, Link } from 'react-router-dom'; 
 import Button from '../../components/Button';
 
 const Hero = () => {
@@ -11,8 +11,11 @@ const Hero = () => {
                     <p className='font-[300] text-xl '>Get thing done quicker and easier using your personal AI assistant.</p>
                 </header>
                 <div className='flex gap-5 justify-center items-center'>
-                    <NavLink to="/signin"><Button>LOG IN</Button></NavLink>
-                    <NavLink to="/signup"><Button>SIGN UP</Button></NavLink>
+                    <Link to="/signin"><Button>LOG IN</Button></Link>
+                    <Link to="/signup"><Button>SIGN UP</Button></Link>
+                </div>
+                <div>
+                    <Outlet />
                 </div>
             </div>
         </section>

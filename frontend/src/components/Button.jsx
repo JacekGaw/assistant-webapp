@@ -2,12 +2,12 @@ const Button = ({ className, type, onClick, disabled, children }) => {
   return (
     <>
       <button
-        className={`p-1 rounded-full from-rose-400 via-fuchsia-500 to-indigo-500 bg-gradient-to-r ${className}`}
+        className={`p-1 rounded-full from-gr-first via-gr-second to-gr-third bg-gradient-to-r ${className}`}
         type={type}
         onClick={onClick}
         disabled={disabled}
       >
-        <span className="block px-5 py-2 text-sm rounded-full bg-[#242424] hover:bg-transparent transition">
+        <span className="block px-5 py-2 text-sm rounded-full bg-background hover:bg-transparent transition uppercase">
           {children}
         </span>
       </button>
