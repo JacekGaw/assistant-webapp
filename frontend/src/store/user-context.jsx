@@ -23,11 +23,12 @@ const UserContextProvider = ({ children }) => {
             },
             body: JSON.stringify(obj)
         });
-        if(!response.ok){
-            console.log(response.message);
-            throw new Error(response.message);
-        }
         const data = await response.json();
+        if(!response.ok){
+            console.log(data.message || response.message);
+            throw new Error(data.message || response.message);
+        }
+        
         localStorage.setItem("accessToken", data.accessToken);
         localStorage.setItem("refreshToken", data.refreshToken);
         setUser(data);
