@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const useRefreshToken = () => {
     const navigate = useNavigate();
-    
+    console.log("used");
     useEffect(() => {
         const interval = setInterval(async () => {
             try {
