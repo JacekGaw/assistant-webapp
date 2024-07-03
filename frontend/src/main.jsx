@@ -7,7 +7,7 @@ import "./index.css";
 import ErrorPage from "./pages/404/ErrorPage";
 import Login from "./pages/Hero/Login";
 import Signup from "./pages/Hero/Signup";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute, {loader as CheckUser} from "./components/ProtectedRoute";
 import PanelRoot from "./pages/Panel/PanelRoot";
 
 const router = createBrowserRouter([
@@ -29,6 +29,7 @@ const router = createBrowserRouter([
   {
     path: "/panel",
     element: <ProtectedRoute />, // This will protect /panel and its sub-routes
+    loader: CheckUser,
     children: [
       {
         path: "",
